@@ -2,8 +2,6 @@ from datasets import load_dataset
 from pathlib import Path
 import shutil
 
-from torch import Value
-
 BOOL_EVAL = ["y", "yes", "oui"]
 DATASET_NAME = "adrienheymans/imdb-movie-genres"
 
@@ -28,7 +26,17 @@ def manage_input(case: int) -> bool:
                 .lower()
                 in BOOL_EVAL
             )
-
+        else:
+            return
+    if case == 2:
+        return (
+            input(
+                "Would you like to create imdb_dataset folder and download corresponding dataset ?\n(y/n): "
+            )
+            .strip()
+            .lower()
+            in BOOL_EVAL
+        )
     raise ValueError(f"Case {case} not existing.")
 
 
@@ -69,8 +77,10 @@ def main():
         else:
             return
     else:
-
-        pass
+        if manage_input(2):
+            reset_folder(target_folder)
+            download_ds(target_folder)
+        return
 
 
 if __name__ == "__main__":
