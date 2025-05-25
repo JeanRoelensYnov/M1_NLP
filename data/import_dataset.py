@@ -31,7 +31,7 @@ def manage_input(case: int) -> bool:
     if case == 2:
         return (
             input(
-                "Would you like to create imdb_dataset folder and download corresponding dataset ?\n(y/n): "
+                "Would you like to create imdb_dataset and data_exploration folder and download corresponding dataset ?\n(y/n): "
             )
             .strip()
             .lower()
@@ -61,24 +61,27 @@ def main():
     # Path to directory
     dir_path = Path(__file__).parent
 
-    # Folder name
-    folder_name = "imdb_dataset"
+    # Folders name
+    imdb_dataset = "imdb_dataset"
+    data_exploration = "data_exploration"
 
     # Target
-    target_folder = dir_path / folder_name
-
+    target_folder = dir_path / imdb_dataset
+    analysis_folder = dir_path / data_exploration
     # User reponse
     resp = False
 
     if target_folder.exists() and target_folder.is_dir():
         if manage_input(1):
             reset_folder(target_folder)
+            reset_folder(analysis_folder)
             download_ds(target_folder)
         else:
             return
     else:
         if manage_input(2):
             reset_folder(target_folder)
+            reset_folder(analysis_folder)
             download_ds(target_folder)
         return
 
