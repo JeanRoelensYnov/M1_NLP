@@ -1,21 +1,11 @@
 from pathlib import Path
+import os
 import polars as pl
 import pyarrow as pa
-from pyarrow import csv
-import os
+from data.datasets_slicing import retrieve_full_path
 from datasets import Dataset
 
 PARENT_FOLDER = Path(__file__).parent
-
-
-def retrieve_full_path(train_test: str) -> Path:
-    folder = PARENT_FOLDER / "imdb_dataset" / train_test
-    files_in_folder = [
-        filename for filename in os.listdir(folder) if filename.endswith(".arrow")
-    ]
-    if len(files_in_folder) > 1:
-        raise ValueError(f"There shouldn't be more than 1 file in {train_test} folder.")
-    return folder / files_in_folder[0]
 
 
 if __name__ == "__main__":

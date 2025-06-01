@@ -1,9 +1,16 @@
-from datasets import load_dataset
+import polars as pl
 from pathlib import Path
 import shutil
+import logging
+
+logger = logging.getLogger()
 
 BOOL_EVAL = ["y", "yes", "oui"]
-DATASET_NAME = "adrienheymans/imdb-movie-genres"
+DATASET_URL = "hf://datasets/adrienheymans/imdb-movie-genres/"
+SPLITS = {
+    "train": "data/train-00000-of-00001-b7b538a3d562331b.parquet",
+    "test": "data/test-00000-of-00001-8b6fe98b0dbe46a8.parquet",
+}
 
 
 def manage_input(case: int) -> bool:
@@ -53,8 +60,19 @@ def reset_folder(folder_path: Path):
 
 
 def download_ds(folder_path: Path):
-    ds = load_dataset(DATASET_NAME)
-    ds.save_to_disk(str(folder_path))
+    logger.info("Reading train split from distant repository (HuggingFace)...")
+    df_train = pl.read_parquet(DATASET_URL + SPLITS["train"])
+    train_path = folder_path / "train.parquet"
+    logger.info(f"Saving it to {train_path}")
+    df_train.write_parquet(train_path)
+    logger.info(
+        "train split saved, reading test split from distant repository (HuggingFace)..."
+    )
+    df_test = pl.read_parquet(DATASET_URL + SPLITS["test"])
+    test_path = folder_path / "test.parquet"
+    logger.info(f"Saving it to {test_path}")
+    df_test.write_parquet(test_path)
+    logger.info("test split saved.")
 
 
 def main():

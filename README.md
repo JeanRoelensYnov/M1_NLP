@@ -20,3 +20,4 @@ MISC :
 - [Remove punctuations with polars](https://stackoverflow.com/questions/71468399/python-polars-regex-remove-non-english-keep-numbers-punctuations-and-emojis)
 - [Best way to strip punctuation from a string](https://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string)
 - [Stemming vs lemmatization](https://www.analyticsvidhya.com/blog/2022/06/stemming-vs-lemmatization-in-nlp-must-know-differences/)
+- [Difference between Apache Parquet and Apache Arrow](https://medium.com/@rramiz.rraza/what-is-apache-arrow-and-how-it-differs-from-apache-parquet-c2b17ef4b00)
