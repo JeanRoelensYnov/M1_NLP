@@ -3,7 +3,9 @@ from pathlib import Path
 import shutil
 import logging
 
-logger = logging.getLogger()
+logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger(__name__)
 
 BOOL_EVAL = ["y", "yes", "oui"]
 DATASET_URL = "hf://datasets/adrienheymans/imdb-movie-genres/"

@@ -15,6 +15,9 @@ EDA :
 - [Spacy models](https://spacy.io/models)
 - [Interactive data visualizations](https://jupyterbook.org/en/stable/interactive/interactive.html)
 
+PREPROCESSING:
+- [Enhancing NLP pipelines with SpaCy pipe](https://www.analyticsvidhya.com/blog/2023/08/nlp-pipelines-with-spacy/)
+
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
 - [Remove punctuations with polars](https://stackoverflow.com/questions/71468399/python-polars-regex-remove-non-english-keep-numbers-punctuations-and-emojis)
