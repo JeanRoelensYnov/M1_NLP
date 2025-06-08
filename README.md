@@ -17,6 +17,10 @@ EDA :
 
 PREPROCESSING:
 - [Enhancing NLP pipelines with SpaCy pipe](https://www.analyticsvidhya.com/blog/2023/08/nlp-pipelines-with-spacy/)
+- [TdidfVectorizer for text feature extraction](https://medium.com/@masudowolabi/how-to-use-sklearns-tfidfvectorizer-for-text-feature-extraction-in-model-testing-e1221fd274f8)
+- [How to use Tfidftransformer & Tfidfvectorizer ](https://kavita-ganesan.com/tfidftransformer-tfidfvectorizer-usage-differences/)
+- [How to encode text data](https://machinelearningmastery.com/prepare-text-data-machine-learning-scikit-learn/)
+- [How to reuse TF-IDF vectorizer](https://stackoverflow.com/questions/29788047/keep-tfidf-result-for-predicting-new-content)
 
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
