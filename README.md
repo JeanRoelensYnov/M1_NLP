@@ -30,6 +30,11 @@ EMBEDDINGS:
 - [Python word embedding using word2vec](https://www.geeksforgeeks.org/python-word-embedding-using-word2vec/)
 - [Numpy version breaks spaCy](https://github.com/explosion/spaCy/issues/13528)
 
+MACHINE LEARNING:
+- [Machine Learning Model Evaluation](https://www.geeksforgeeks.org/machine-learning/machine-learning-model-evaluation/)
+- [How to save trained model in Machine Learning](https://neptune.ai/blog/saving-trained-model-in-python)
+- [Gridsearch documentation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
+
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
 - [Remove punctuations with polars](https://stackoverflow.com/questions/71468399/python-polars-regex-remove-non-english-keep-numbers-punctuations-and-emojis)

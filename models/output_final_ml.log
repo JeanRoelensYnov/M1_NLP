@@ -1,0 +1,40 @@
+INFO:__main__:Best parameters found:
+INFO:__main__:{'clf__C': 10, 'clf__class_weight': None, 'clf__penalty': 'l2', 'tfidf__max_features': 20000, 'tfidf__ngram_range': (1, 2)}
+INFO:__main__:Accuracy: 0.5743
+INFO:__main__:Classification report:
+INFO:__main__:
+              precision    recall  f1-score   support
+
+      action       0.44      0.35      0.39      1314
+       adult       0.65      0.38      0.48       590
+   adventure       0.50      0.26      0.34       775
+   animation       0.35      0.13      0.19       498
+   biography       0.20      0.01      0.01       264
+      comedy       0.53      0.58      0.55      7446
+       crime       0.25      0.08      0.12       505
+ documentary       0.69      0.80      0.74     13096
+       drama       0.56      0.70      0.62     13612
+      family       0.39      0.16      0.22       783
+     fantasy       0.38      0.11      0.18       322
+   game-show       0.85      0.59      0.70       193
+     history       0.44      0.03      0.06       243
+      horror       0.63      0.59      0.61      2204
+       music       0.62      0.52      0.56       731
+     musical       0.33      0.08      0.12       276
+     mystery       0.30      0.05      0.09       318
+        news       0.58      0.12      0.20       181
+  reality-tv       0.48      0.29      0.36       883
+     romance       0.34      0.11      0.16       672
+      sci-fi       0.56      0.34      0.42       646
+       short       0.39      0.37      0.38      5072
+       sport       0.60      0.39      0.47       431
+   talk-show       0.51      0.27      0.36       391
+    thriller       0.32      0.20      0.24      1590
+         war       0.58      0.17      0.26       132
+     western       0.89      0.79      0.84      1032
+
+    accuracy                           0.57     54200
+   macro avg       0.49      0.31      0.36     54200
+weighted avg       0.56      0.57      0.55     54200
+
+INFO:__main__:Model saved at D:\Code\M1\M1_NLP\models\ml_model.pkl
