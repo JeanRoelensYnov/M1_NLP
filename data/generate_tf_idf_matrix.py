@@ -49,8 +49,7 @@ def create_vectorizer_folder():
     except Exception as e:
         raise Exception(f"Exception while creating 'vectorizer' folder : {e}")
 
-
-if __name__ == "__main__":
+def main():
     create_vectorizer_folder()
     train_clean, test_clean = get_clean_text_as_list()
 
@@ -62,3 +61,6 @@ if __name__ == "__main__":
     # Save the TF-IDF vectorizer (Check README)
     dump_path = PARENT_FOLDER / "vectorizer" / "tfidf_vectorizer.pkl"
     joblib.dump(tfidf, dump_path)
+
+if __name__ == "__main__":
+    main()

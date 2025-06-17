@@ -98,8 +98,7 @@ def process_chunk(df: pl.DataFrame) -> pl.DataFrame:
 
     return df.with_columns(pl.Series("clean_text", processed_texts))
 
-
-if __name__ == "__main__":
+def main():
     create_preprocess_folder()
     train_df, test_df = get_parquet_dataframes()
     dict_df = {"train": train_df, "test": test_df}
@@ -124,3 +123,6 @@ if __name__ == "__main__":
         logger.info(
             f"Dataframe: {name} processed in: {time.time() - start_time:.2f} seconds"
         )
+
+if __name__ == "__main__":
+    main()

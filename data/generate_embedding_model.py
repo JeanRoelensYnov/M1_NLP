@@ -45,8 +45,7 @@ def create_embedding_folder():
     except Exception as e:
         raise Exception(f"Exception while creating 'embedding' folder : {e}")
 
-
-if __name__ == "__main__":
+def main():
     create_embedding_folder()
     train_df, _ = get_clean_text_as_list()
     tokenized_train = tokenize_text(train_df)
@@ -56,3 +55,6 @@ if __name__ == "__main__":
     output_path = PARENT_FOLDER / "embedding" / "w2v.model"
 
     w2v_model.save(str(output_path))
+
+if __name__ == "__main__":
+    main()

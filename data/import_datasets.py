@@ -2,6 +2,7 @@ import polars as pl
 from pathlib import Path
 import shutil
 import logging
+from typing import Union
 
 logging.basicConfig(level=logging.INFO)
 
@@ -15,7 +16,7 @@ SPLITS = {
 }
 
 
-def manage_input(case: int) -> bool:
+def manage_input(case: int) -> Union[bool, None]:
     resp = False
     if case == 1:
         resp = (
