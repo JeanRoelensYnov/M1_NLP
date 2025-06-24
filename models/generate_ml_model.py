@@ -82,7 +82,7 @@ def train_and_evaluate():
 
     logger.info(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
     logger.info("Classification report:")
-    logger.info("\n" + classification_report(y_test, y_pred, zero_division=0))
+    logger.info(classification_report(y_test, y_pred, zero_division=0))
 
     joblib.dump(best_model, MODEL_SAVE_PATH)
     logger.info(f"Model saved at {MODEL_SAVE_PATH}")

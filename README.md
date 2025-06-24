@@ -34,6 +34,12 @@ MACHINE LEARNING:
 - [Machine Learning Model Evaluation](https://www.geeksforgeeks.org/machine-learning/machine-learning-model-evaluation/)
 - [How to save trained model in Machine Learning](https://neptune.ai/blog/saving-trained-model-in-python)
 - [Gridsearch documentation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)
+- [Using Machine Learning to Identify Movie Genre](https://conferences.computer.org/ictapub/pdfs/ITCA2020-6EIiKprXTS23UiQ2usLpR0/114100a001/114100a001.pdf)
+
+DEEP LEARNING:
+- [Predicting Movie Genres Based on Plot Summaries](https://www.researchgate.net/publication/322517980_Predicting_Movie_Genres_Based_on_Plot_Summaries)
+- [GloVe](https://nlp.stanford.edu/projects/glove/)
+- [Alternative to Gensim word2vec](https://www.quora.com/Are-there-any-more-modern-alternatives-to-word2vec)
 
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
@@ -41,3 +47,4 @@ MISC :
 - [Best way to strip punctuation from a string](https://stackoverflow.com/questions/265960/best-way-to-strip-punctuation-from-a-string)
 - [Stemming vs lemmatization](https://www.analyticsvidhya.com/blog/2022/06/stemming-vs-lemmatization-in-nlp-must-know-differences/)
 - [Difference between Apache Parquet and Apache Arrow](https://medium.com/@rramiz.rraza/what-is-apache-arrow-and-how-it-differs-from-apache-parquet-c2b17ef4b00)
+- [TQDM documentation](https://tqdm.github.io/)
