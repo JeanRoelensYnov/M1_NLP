@@ -11,6 +11,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import GridSearchCV
+from typing import List, Tuple
 
 # Since the dataset is already split between train and test there's no use (at least I think) to import train_test_split
 
@@ -27,7 +28,7 @@ TEST_PARQUET = PROJECT_ROOT / "data" / "preprocessed" / "test_preprocessed.parqu
 MODEL_SAVE_PATH = PROJECT_ROOT / "models" / "ml_model.pkl"
 
 
-def load_data():
+def load_data() -> Tuple[List[str], List[str], List[str], List[str]]:
     # Retrieve train and test df
     logger.info("Loading datasets...")
     train_df = pl.read_parquet(TRAIN_PARQUET)

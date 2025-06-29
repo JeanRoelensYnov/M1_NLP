@@ -40,6 +40,7 @@ DEEP LEARNING:
 - [Predicting Movie Genres Based on Plot Summaries](https://www.researchgate.net/publication/322517980_Predicting_Movie_Genres_Based_on_Plot_Summaries)
 - [GloVe](https://nlp.stanford.edu/projects/glove/)
 - [Alternative to Gensim word2vec](https://www.quora.com/Are-there-any-more-modern-alternatives-to-word2vec)
+- [Word embeddings with pytorch](https://www.pythonprog.com/word-embeddings/)
 
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
