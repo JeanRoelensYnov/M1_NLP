@@ -17,6 +17,7 @@ EDA :
 
 PREPROCESSING:
 - [Enhancing NLP pipelines with SpaCy pipe](https://www.analyticsvidhya.com/blog/2023/08/nlp-pipelines-with-spacy/)
+- [English language contractions in python](https://stackoverflow.com/questions/19790188/expanding-english-language-contractions-in-python)
 
 VECTORIZER:
 - [TdidfVectorizer for text feature extraction](https://medium.com/@masudowolabi/how-to-use-sklearns-tfidfvectorizer-for-text-feature-extraction-in-model-testing-e1221fd274f8)
@@ -41,6 +42,9 @@ DEEP LEARNING:
 - [GloVe](https://nlp.stanford.edu/projects/glove/)
 - [Alternative to Gensim word2vec](https://www.quora.com/Are-there-any-more-modern-alternatives-to-word2vec)
 - [Word embeddings with pytorch](https://www.pythonprog.com/word-embeddings/)
+- [Google SentencePiece](https://github.com/google/sentencepiece)
+- [seq2seq explained](https://medium.com/analytics-vidhya/encoder-decoder-seq2seq-models-clearly-explained-c34186fbf49b)
+- [SentencePiece training in python](https://github.com/google/sentencepiece/blob/master/python/README.md)
 
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
