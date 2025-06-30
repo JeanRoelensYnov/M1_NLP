@@ -42,6 +42,9 @@ DEEP LEARNING:
 - [Alternative to Gensim word2vec](https://www.quora.com/Are-there-any-more-modern-alternatives-to-word2vec)
 - [Word embeddings with pytorch](https://www.pythonprog.com/word-embeddings/)
 
+SUMMARIZATION:
+- [Top 5 Summarizer](https://www.turing.com/kb/5-powerful-text-summarization-techniques-in-python)
+
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
 - [Remove punctuations with polars](https://stackoverflow.com/questions/71468399/python-polars-regex-remove-non-english-keep-numbers-punctuations-and-emojis)
