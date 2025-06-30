@@ -9,7 +9,7 @@ import polars as pl
 from pathlib import Path
 from typing import List, Tuple, Dict
 import logging
-from generate_ml_model import load_data
+from .generate_ml_model import load_data
 from sklearn.preprocessing import LabelEncoder
 
 logging.basicConfig(level=logging.INFO)

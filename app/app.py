@@ -2,9 +2,14 @@ import streamlit as st
 import torch
 import pickle
 import joblib
-from models.generate_dl_model import GenreClassifier, EMBEDDING_DIM
 import numpy as np
 from pathlib import Path
+import sys
+ROOT_FOLDER = Path(__file__).parent.parent
+sys.path.append(str(ROOT_FOLDER))
+
+# Local import
+from models.generate_dl_model import GenreClassifier, EMBEDDING_DIM
 
 # For typing
 from sklearn.preprocessing import LabelEncoder
@@ -19,7 +24,8 @@ from string import punctuation
 
 
 NLP = spacy.load("en_core_web_trf")
-ROOT_FOLDER = Path(__file__).parent.parent
+
+
 
 # Load necessary assets
 
@@ -69,11 +75,11 @@ if submit and user_input.strip():
     preprocessed_input = preprocess(user_input)
 
     if model_type == "ML":
-        pred = ml_model.predict(preprocessed_input)
+        pred = ml_model.predict([preprocessed_input])[0]
     else:  # DL
         tokens = preprocessed_input.split()
         indices = [word2idx.get(word, 0) for word in tokens]
-        tensor_input = torch.LongTensor(indices).unsqueeze(0)
+        tensor_input = torch.LongTensor(indices)
         padded_input = torch.nn.utils.rnn.pad_sequence(
             [tensor_input], batch_first=True, padding_value=0
         )
