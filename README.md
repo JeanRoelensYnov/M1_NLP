@@ -46,6 +46,9 @@ DEEP LEARNING:
 - [seq2seq explained](https://medium.com/analytics-vidhya/encoder-decoder-seq2seq-models-clearly-explained-c34186fbf49b)
 - [SentencePiece training in python](https://github.com/google/sentencepiece/blob/master/python/README.md)
 
+SUMMARIZATION:
+- [Top 5 Summarizer](https://www.turing.com/kb/5-powerful-text-summarization-techniques-in-python)
+
 MISC :
 - [__file__ does not exist in Jupyter Notebook](https://stackoverflow.com/questions/39125532/file-does-not-exist-in-jupyter-notebook)
 - [Remove punctuations with polars](https://stackoverflow.com/questions/71468399/python-polars-regex-remove-non-english-keep-numbers-punctuations-and-emojis)

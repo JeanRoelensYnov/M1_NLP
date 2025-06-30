@@ -27,6 +27,16 @@ from string import punctuation
 
 NLP = spacy.load("en_core_web_trf")
 
+# For "summarization"
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize, sent_tokenize
+from string import punctuation
+import heapq
+from typing import Dict
+
+nltk.download('punkt')
+nltk.download('stopwords')
 
 
 # Load necessary assets
@@ -54,11 +64,40 @@ dl_model.load_state_dict(
     )
 )
 
+# Summarizer
+
+def summarize(text: str, num_sentences = 6):
+    sentences = sent_tokenize(text)
+
+    stop_words = set(stopwords.words('english'))
+    word_frequencies = {}
+
+    for word in word_tokenize(text.lower()):
+        if word not in stop_words and word not in punctuation:
+            if word not in word_frequencies:
+                word_frequencies[word] = 1
+            else:
+                word_frequencies[word] += 1
+    
+    sentences_score : Dict[str,int] = {}
+    for sentence in sentences:
+        for word in word_tokenize(sentence.lower()):
+            if word in word_frequencies:
+                if len(sentence.split(" ")) < 30: # Avoid long sentences
+                    if sentence not in sentences_score:
+                        sentences_score[sentence] = word_frequencies[word]
+                    else:
+                        sentences_score[sentence] += word_frequencies[word]
+    sentence_ranks = heapq.nlargest(num_sentences, enumerate(sentences_score), key=lambda x: x[1])
+    sorted_sentences = sorted(sentence_ranks, key=lambda x: x[0])  # sort by original order
+    summary = ' '.join([sentences[i] for i, _ in sorted_sentences])
+    return summary
+
 # Streamlit UI
 
 st.title("Movie Genre Classifier")
 
-model_type = st.radio("Choose a model type:", ["ML", "DL"])
+model_type = st.radio("Choose a model type:", ["ML", "DL", "Summarize"])
 user_input = st.text_area("Enter a movie synopsis:", height=200)
 submit = st.button("Predict")
 
@@ -74,22 +113,26 @@ def preprocess(user_input: str) -> str:
 
 
 if submit and user_input.strip():
-    preprocessed_input = preprocess(user_input)
+    if model_type in ["ML", "DL"]:
+        preprocessed_input = preprocess(user_input)
 
-    if model_type == "ML":
-        pred = ml_model.predict([preprocessed_input])[0]
-    else:  # DL
-        tokens = preprocessed_input.split()
-        indices = [word2idx.get(word, 0) for word in tokens]
-        tensor_input = torch.LongTensor(indices)
-        padded_input = torch.nn.utils.rnn.pad_sequence(
-            [tensor_input], batch_first=True, padding_value=0
-        )
+        if model_type == "ML":
+            pred = ml_model.predict([preprocessed_input])[0]
+        else:  # DL
+            tokens = preprocessed_input.split()
+            indices = [word2idx.get(word, 0) for word in tokens]
+            tensor_input = torch.LongTensor(indices)
+            padded_input = torch.nn.utils.rnn.pad_sequence(
+                [tensor_input], batch_first=True, padding_value=0
+            )
 
-        dl_model.eval()
-        with torch.no_grad():
-            output = dl_model(padded_input)
-            predicted_index = torch.argmax(output, dim=1).item()
-            pred = label_encoder.inverse_transform([predicted_index])[0]
+            dl_model.eval()
+            with torch.no_grad():
+                output = dl_model(padded_input)
+                predicted_index = torch.argmax(output, dim=1).item()
+                pred = label_encoder.inverse_transform([predicted_index])[0]
 
-    st.success(f"Predicted genre: {pred}")
+        st.success(f"Predicted genre: {pred}")
+    else: # Summary
+        pred = summarize(user_input)
+        st.success(f"Summary found : \n{pred}")
