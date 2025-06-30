@@ -5,7 +5,6 @@ File to generate the DL model which I'll use to predict the genre of a synopsis
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
-import polars as pl
 from pathlib import Path
 from typing import List, Tuple, Dict
 import logging
@@ -140,7 +139,7 @@ if __name__ == "__main__":
     """
     Model training
     """
-    device = torch.device("cude" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     num_classes = len(label_encoder.classes_)
     model = GenreClassifier(
         vocab_size=len(word2idx),
@@ -153,7 +152,7 @@ if __name__ == "__main__":
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     logger.info("Training phase start..")
-    for epoch in range(50):
+    for epoch in range(2):
         train_loss, train_acc = train_epoch(
             model=model,
             dataloader=train_loader,
