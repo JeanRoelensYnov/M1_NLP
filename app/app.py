@@ -1,12 +1,13 @@
+from pathlib import Path
+import sys
+ROOT_FOLDER = Path(__file__).parent.parent
+sys.path.append(str(ROOT_FOLDER))
 import streamlit as st
 import torch
 import pickle
 import joblib
 import numpy as np
-from pathlib import Path
-import sys
-ROOT_FOLDER = Path(__file__).parent.parent
-sys.path.append(str(ROOT_FOLDER))
+
 
 # Local import
 from models.generate_dl_model import GenreClassifier, EMBEDDING_DIM
@@ -66,7 +67,7 @@ dl_model.load_state_dict(
 
 # Summarizer
 
-def summarize(text: str, num_sentences = 6):
+def ml_summarize(text: str, num_sentences = 6):
     sentences = sent_tokenize(text)
 
     stop_words = set(stopwords.words('english'))
@@ -97,7 +98,7 @@ def summarize(text: str, num_sentences = 6):
 
 st.title("Movie Genre Classifier")
 
-model_type = st.radio("Choose a model type:", ["ML", "DL", "Summarize"])
+model_type = st.radio("Choose a model type:", ["ML Classification", "DL Classification", "ML Summarize", "DL Summarize"])
 user_input = st.text_area("Enter a movie synopsis:", height=200)
 submit = st.button("Predict")
 
@@ -113,10 +114,10 @@ def preprocess(user_input: str) -> str:
 
 
 if submit and user_input.strip():
-    if model_type in ["ML", "DL"]:
+    if model_type in ["ML Classification", "DL Classification"]:
         preprocessed_input = preprocess(user_input)
 
-        if model_type == "ML":
+        if model_type == "ML Classification":
             pred = ml_model.predict([preprocessed_input])[0]
         else:  # DL
             tokens = preprocessed_input.split()
@@ -132,7 +133,12 @@ if submit and user_input.strip():
                 predicted_index = torch.argmax(output, dim=1).item()
                 pred = label_encoder.inverse_transform([predicted_index])[0]
 
-        st.success(f"Predicted genre: {pred}")
+        st.write(f"Predicted genre: {pred}")
     else: # Summary
-        pred = summarize(user_input)
-        st.success(f"Summary found : \n{pred}")
+        if model_type == "DL Summarize":
+            with st.spinner("Generating summary ..."):
+                summary = summarize(user_input)
+            st.write(f"DL Summary found : \n{summary}")
+        else:
+            pred = ml_summarize(user_input)
+            st.write(f"ML Summary found : \n{pred}")
