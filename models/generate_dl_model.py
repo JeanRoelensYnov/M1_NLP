@@ -8,7 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 from pathlib import Path
 from typing import List, Tuple, Dict
 import logging
-from generate_ml_model import load_data
+from models.generate_ml_model import load_data
 from sklearn.preprocessing import LabelEncoder
 import pickle
 
@@ -152,7 +152,7 @@ if __name__ == "__main__":
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     logger.info("Training phase start..")
-    for epoch in range(2):
+    for epoch in range(30):
         train_loss, train_acc = train_epoch(
             model=model,
             dataloader=train_loader,
