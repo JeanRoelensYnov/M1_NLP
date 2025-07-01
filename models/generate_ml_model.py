@@ -21,8 +21,6 @@ logger = logging.getLogger(__name__)
 
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent
-# Since we want the best result I'm going to drop the pre-made tfidf vectorizer
-# VECTORIZER_PATH = PROJECT_ROOT / "data" / "vectorizer" / "tfidf_vectorizer.pkl"
 TRAIN_PARQUET = PROJECT_ROOT / "data" / "preprocessed" / "train_preprocessed.parquet"
 TEST_PARQUET = PROJECT_ROOT / "data" / "preprocessed" / "test_preprocessed.parquet"
 MODEL_SAVE_PATH = PROJECT_ROOT / "models" / "ml_model.pkl"
